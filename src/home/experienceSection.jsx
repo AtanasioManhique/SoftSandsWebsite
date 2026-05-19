@@ -3,7 +3,7 @@ import { useLang } from "../language/useLanguage";
 
 
    
-   import img1 from "../data/ExperienceSection/BeachFront.png";
+   import img1 from "../data/ExperienceSection/Beachfront.png";
    import img2 from "../data/ExperienceSection/LuxuryAmenities.png";
    import img3 from "../data/ExperienceSection/PersonalizedService.png";
    
