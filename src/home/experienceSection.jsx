@@ -3,9 +3,9 @@ import { useLang } from "../language/useLanguage";
 
 
    
-   import img1 from "../data/ExperienceSection/Beachfront.png";
-   import img2 from "../data/ExperienceSection/LuxuryAmenities.png";
-   import img3 from "../data/ExperienceSection/PersonalizedService.png";
+   import img1 from "../data/ExperienceSection/Beachfront.webp";
+   import img2 from "../data/ExperienceSection/LuxuryAmenities.webp";
+   import img3 from "../data/ExperienceSection/PersonalizedService.webp";
    
 const IMAGE_PLACEHOLDERS = {
   0: img1, // ocean terrace

@@ -2,9 +2,9 @@ import { useEffect, useRef, useState } from "react";
 import { useLang } from "../language/useLanguage";
 import { t } from "../language/translations";
 
-import maputoImg from "../data/Destinations/Maputo.png";
-import gazaImg   from "../data/Destinations/Gaza.png";
-import inhambaneImg from "../data/Destinations/Inhambane.png";
+import maputoImg from "../data/Destinations/Maputo.webp";
+import gazaImg   from "../data/Destinations/Gaza.webp";
+import inhambaneImg from "../data/Destinations/Inhambane.webp";
 
 const DEST_IMAGES = [maputoImg, gazaImg, inhambaneImg];
 
