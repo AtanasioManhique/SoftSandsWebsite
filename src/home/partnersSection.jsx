@@ -15,19 +15,24 @@ function useReveal() {
   return [ref, visible];
 }
 
+import pontaMembeneImg from "../data/Partners/PontaMembene.png";
+import skyIslandImg from "../data/Partners/SkyIsland.jpeg";
+import farolBarraImg from "../data/Partners/FarolBarra.png";
+import oceanViewImg from "../data/Partners/OceanView.jpeg";
+import pontaConsultImg from "../data/Partners/PontaConsult.jpeg";
+import parqueMaputoImg from "../data/Partners/ParqueMaputo.jpeg";
+import tilakLodgeImg from "../data/Partners/TilakLodge.jpeg";
+import palmGroveImg from "../data/Partners/PalmGrove.png";
+
 const PARTNERS = [
-  "Ponta Membene",
-  "Sky Island",
-  "Farol da Barra",
-  "Barra In",
-  "Ocean View",
-  "Lehani",
-  "Kaya Kwero",
-  "Ponta Consult",
-  "Ponta Stay",
-  "Casa na Praia",
-  "Tofo Summer",
-  "Tilak Lodge",
+  { name: "Ponta Membene", image: pontaMembeneImg },
+  { name: "Sky Island", image: skyIslandImg },
+  { name: "Farol da Barra", image: farolBarraImg },
+  { name: "Ocean View", image: oceanViewImg },
+  { name: "Ponta Consult", image: pontaConsultImg },
+  { name: "Ponta Stay", image: parqueMaputoImg },
+  { name: "Tilak Lodge", image: tilakLodgeImg },
+  { name: "Palm Grove", image: palmGroveImg },
 ];
 
 const CONTENT = {
@@ -35,19 +40,19 @@ const CONTENT = {
     eyebrow: "Trusted Partners",
     title: "Properties we've\nworked with.",
     sub: "A growing network of exceptional stays across Mozambique's southern coastline — each one handpicked, each one trusted.",
-    count: "12 properties",
+    count: `${PARTNERS.length} properties`,
     countSub: "and counting",
   },
   pt: {
     eyebrow: "Parceiros de Confiança",
     title: "Propriedades com\nquem trabalhámos.",
     sub: "Uma rede crescente de estadias excepcionais ao longo da costa sul de Moçambique — cada uma selecionada, cada uma de confiança.",
-    count: "12 propriedades",
+    count: `${PARTNERS.length} propriedades`,
     countSub: "e a crescer",
   },
 };
 
-function PartnerItem({ name, index, visible }) {
+function PartnerItem({ partner, index, visible }) {
   const [hovered, setHovered] = useState(false);
 
   return (
@@ -101,9 +106,26 @@ function PartnerItem({ name, index, visible }) {
         flex: 1,
         transition: "color 0.3s ease",
       }}>
-        {name}
+        {partner.name}
       </span>
 
+      {/* Image / Logo */}
+      {partner.image && (
+        <img
+          src={partner.image}
+          alt={partner.name}
+          style={{
+            height: "clamp(40px, 4.5vw, 52px)",
+            width: "clamp(40px, 4.5vw, 52px)",
+            borderRadius: "50%",
+            objectFit: "cover",
+            opacity: hovered ? 1 : 0.9,
+            transform: hovered ? "scale(1.08)" : "scale(1)",
+            transition: "all 0.4s cubic-bezier(0.4,0,0.2,1)",
+            boxShadow: hovered ? "0 8px 24px rgba(200,149,108,0.2)" : "0 4px 12px rgba(0,0,0,0.05)",
+          }}
+        />
+      )}
 
     </div>
   );
@@ -241,8 +263,8 @@ export default function PartnersSection() {
         {isMobile ? (
           /* Mobile: single column */
           <div>
-            {PARTNERS.map((name, i) => (
-              <PartnerItem key={i} name={name} index={i} visible={visible} />
+            {PARTNERS.map((partner, i) => (
+              <PartnerItem key={i} partner={partner} index={i} visible={visible} />
             ))}
           </div>
         ) : (
@@ -253,13 +275,13 @@ export default function PartnersSection() {
             gap: "0 80px",
           }}>
             <div>
-              {col1.map((name, i) => (
-                <PartnerItem key={i} name={name} index={i} visible={visible} />
+              {col1.map((partner, i) => (
+                <PartnerItem key={i} partner={partner} index={i} visible={visible} />
               ))}
             </div>
             <div>
-              {col2.map((name, i) => (
-                <PartnerItem key={i} name={name} index={col1.length + i} visible={visible} />
+              {col2.map((partner, i) => (
+                <PartnerItem key={i} partner={partner} index={col1.length + i} visible={visible} />
               ))}
             </div>
           </div>
